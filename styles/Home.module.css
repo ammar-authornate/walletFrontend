@@ -1,5 +1,8 @@
 .container {
-  padding: 0 2rem;
+  padding: 2rem 4rem;
+  background-color:rgba(33, 33, 33, 0.8);
+  border-radius:30px;
+  margin: 25px;
 }
 
 .main {

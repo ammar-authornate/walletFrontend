@@ -7,8 +7,9 @@ import { EmailModel } from '../components/Model';
 import { MarginSpacer } from '../components/Spacer';
 import { Button } from '../components/Button';
 import { InputBox } from '../components/TextBox';
-import { InputTextBox } from '../components/inputBox';
-import Body from '../components/Box';
+import Graph from '../components/Graph';
+import Chart from '../components/Chart';
+
 export default function Home() {
   const [signUpModel, setSignUpModel] = useState(false);
   const emailModel = (bet) => {
@@ -83,6 +84,8 @@ export default function Home() {
                   <Image style={{marginLeft:'1rem'}} src='/assets/Copy.png' alt='wallets' />
                 </div>
               </div>
+              <MarginSpacer mt='3vh'/>
+              <Graph />
             </div>
           </div>
         )}

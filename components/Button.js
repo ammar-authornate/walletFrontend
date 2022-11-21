@@ -5,9 +5,10 @@ export const Button = styled.button`
   align-items: center;
   text-align:center;
   width: 100%;
+  border:none;
   height:100%;
   height: 56px;
-  background: linear-gradient(97.74deg, #cef458 44.02%, #ae29dd 178.75%);
+  background: #44C454;
   border-radius: 70px;
   cursor: pointer;
   :hover {

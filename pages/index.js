@@ -5,7 +5,7 @@ import { EmailModel } from '../components/Model';
 import { MarginSpacer } from '../components/Spacer';
 import { Button } from '../components/Button';
 import { InputBox } from '../components/TextBox';
-
+import Link from 'next/link';
 
 export default function Home() {
   const [signUpModel, setSignUpModel] = useState(false);
@@ -155,14 +155,16 @@ export default function Home() {
                     Upload an CSV to Analyse precious wallet
                   </H1>
                   <MarginSpacer mt='3vh' />
-                  <Button
-                    style={{ background: 'white', color: 'black' }}
-                    onClick={() => {
-                      setHomePage(false), setScorePage(true);
-                    }}
-                  >
-                    Analyse another wallet
-                  </Button>
+                  <Link href={'/machineWallet'}>
+                    <Button
+                      style={{ background: 'white', color: 'black' }}
+                      onClick={() => {
+                        setHomePage(false), setScorePage(true);
+                      }}
+                    >
+                      Analyse another wallet
+                    </Button>
+                  </Link>
                 </div>
               </InputBox>
             </div>

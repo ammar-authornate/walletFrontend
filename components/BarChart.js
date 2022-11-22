@@ -158,11 +158,11 @@ function HalfPie({ width }) {
     chart
       ?.get('colors')
       ?.set('colors', [
-        am5.color(0x339c3f),
-        am5.color(0x087f8c),
-        am5.color(0x5aaa95),
-        am5.color(0x86a873),
-        am5.color(0xbb9f06),
+        am5.color('#302f2f'),
+        am5.color('#302f2f'),
+        am5.color('#302f2f'),
+        am5.color('#302f2f'),
+        am5.color('#302f2f'),
       ]);
 
     // hide zoomout button
@@ -222,8 +222,8 @@ function HalfPie({ width }) {
     });
 
     series.columns.template.adapters.add('fill', function (fill, target) {
-      if (target.dataItem.get('valueY') < 6000) {
-        return am5.color(0xdadada);
+      if (target.dataItem.get('valueY') == 7878) {
+        return am5.color('#44C454');    
       }
       return fill;
     });
@@ -262,7 +262,7 @@ function HalfPie({ width }) {
     goalLabel?.setAll({
       centerY: am5.p100,
       centerX: am5.p100,
-      text: 'Goal',
+      text: '',
     });
 
     // put to other side
@@ -286,7 +286,7 @@ function HalfPie({ width }) {
     goalLabel2?.setAll({
       centerY: am5.p100,
       centerX: am5.p100,
-      text: '2 x Goal',
+      text: '',
     });
 
     // put to other side
@@ -296,7 +296,6 @@ function HalfPie({ width }) {
 
     // reposition when width changes
     chart.plotContainer.onPrivate('width', function () {
-      goalLabel?.markDirtyPosition();
       goalLabel2?.markDirtyPosition();
     });
 
@@ -348,7 +347,6 @@ function HalfPie({ width }) {
     // https://www.amcharts.com/docs/v5/concepts/animations/
     chart.appear(1000, 50);
 
-    pieRef.current = chart;
 
     return () => {
       root.dispose();

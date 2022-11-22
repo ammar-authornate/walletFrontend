@@ -10,9 +10,10 @@ import BarGraph from '../components/BarGraph';
 import CustomizedTables from '../components/Table';
 import ChartScore from '../components/ChartScore';
 import Tree from '../components/Tree';
-import HalfPie from '../components/Halfpie';
 import LineChart from '../components/lineChart';
-import NestedDonut from '../components/lineChart2';
+import NestedDonut from '../components/PieChart';
+import HalfPie from '../components/BarChart';
+import PieChart2 from '../components/PieChart2';
 
 const MachineWallet = () => {
   const [active, setActive] = useState(false);
@@ -69,7 +70,7 @@ const MachineWallet = () => {
             width: '100%',
             padding: '10px',
             border: '1px solid #23562a',
-            borderRadius: '20px',
+            borderRadius: '10px',
           }}
         >
           <div
@@ -117,8 +118,7 @@ const MachineWallet = () => {
             />
           </div>
         </div>
-
-        <MarginSpacer mt='3vh' />
+        <MarginSpacer />
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <NestedDonut />
         </div>
@@ -151,9 +151,19 @@ const MachineWallet = () => {
           <Tree />
         </div>
 
-        <BarGraph />
         <CustomizedTables />
-        <ChartScore />
+        <div
+          style={{
+            padding: 0,
+            borderRadius: '40px',
+            background: '#262626',
+            marginTop: '3vh',
+          }}
+        >
+          <HalfPie />
+        </div>
+
+        <PieChart2 />
       </div>
     </div>
   );

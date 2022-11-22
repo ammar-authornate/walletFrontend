@@ -12,8 +12,8 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
     color: 'rgba(255,255,255,0.9)',
-    backgroundColor:'#262626',
-    padding:'40px',
+    backgroundColor: '#262626',
+    padding: '40px',
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -23,7 +23,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
-    borderRadius:'40px',
+    borderRadius: '40px',
   },
 }));
 
@@ -41,7 +41,10 @@ const rows = [
 
 export default function CustomizedTables() {
   return (
-    <TableContainer component={Paper} style={{ marginTop: '3vh',borderRadius:'40px' }}>
+    <TableContainer
+      component={Paper}
+      style={{ marginTop: '3vh', borderRadius: '30px' }}
+    >
       <Table
         sx={{ minWidth: 700, background: '#262626' }}
         aria-label='customized table'
@@ -50,34 +53,50 @@ export default function CustomizedTables() {
           <TableRow>
             <StyledTableCell>Dessert (100g serving)</StyledTableCell>
             <StyledTableCell align='right'>Calories</StyledTableCell>
-            <StyledTableCell align='right'>Fat&nbsp;(g)</StyledTableCell>
+            <StyledTableCell align='left'>Fat&nbsp;(g)</StyledTableCell>
             <StyledTableCell align='right'>Carbs&nbsp;(g)</StyledTableCell>
             <StyledTableCell align='right'>Protein&nbsp;(g)</StyledTableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody style={{width:'100%'}}>
           {rows.map((row) => (
-            <StyledTableRow key={row.name} style={{backgroundColor:'#4c4c4c',borderRadius:'40px',marginTop:'40px'}}>
-              <StyledTableCell
-                component='th'
-                scope='row'
-                style={{ color: 'white' }}
+              <StyledTableRow
+                key={row.name}
+                style={{ backgroundColor: '#302f2f',margin:'20px'}}
               >
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align='right' style={{ color: 'white' ,padding:'40px'}}>
-                {row.calories}
-              </StyledTableCell>
-              <StyledTableCell align='right' style={{ color: 'white' }}>
-                {row.fat}
-              </StyledTableCell>
-              <StyledTableCell align='right' style={{ color: 'white' }}>
-                {row.carbs}
-              </StyledTableCell>
-              <StyledTableCell align='right' style={{ color: 'white' }}>
-                {row.protein}
-              </StyledTableCell>
-            </StyledTableRow>
+                 
+                <StyledTableCell
+                  component='th'
+                  scope='row'
+                  style={{ color: 'white' }}
+                >
+                  {row.name}
+                </StyledTableCell>
+                <StyledTableCell
+                  align='right'
+                  style={{ color: 'white', padding: '20px' }}
+                >
+                  {row.calories}
+                </StyledTableCell>
+                <StyledTableCell align='right' style={{ color: 'white' }}>
+                  <div
+                    style={{
+                      background: row.fat > 10 ? '#44C454' : 'blue',
+                      width: '40%',
+                      textAlign: 'center',
+                      borderRadius: '20px',
+                    }}
+                  >
+                    {row.fat}
+                  </div>
+                </StyledTableCell>
+                <StyledTableCell align='right' style={{ color: 'white' }}>
+                  {row.carbs}
+                </StyledTableCell>
+                <StyledTableCell align='right' style={{ color: 'white' }}>
+                  {row.protein}
+                </StyledTableCell>
+              </StyledTableRow>
           ))}
         </TableBody>
       </Table>

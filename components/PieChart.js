@@ -30,9 +30,9 @@ function NestedDonut({ width }) {
         valueField: 'value',
         categoryField: 'category',
         alignLabels: false,
-        radius: am5.percent(100),
+        radius: am5.percent(60),
         color: am5.color('#44C454'),
-        innerRadius: am5.percent(80),
+        innerRadius: am5.percent(90),
       })
     );
 
@@ -43,7 +43,7 @@ function NestedDonut({ width }) {
     });
 
     series0.slices.template.setAll({
-      fillOpacity: 0.5,
+      fillOpacity: 0.2,
       strokeOpacity: 0,
       templateField: 'settings',
     });
@@ -70,10 +70,42 @@ function NestedDonut({ width }) {
       {
         category: 'First + Second',
         value: 60,
+        settings: { fill: am5.color('#44C454') },
       },
       {
         category: 'Unused',
         value: 30,
+        settings: { forceHidden: true },
+      },
+    ]);
+    let series2 = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: 'value',
+        categoryField: 'category',
+        alignLabels: false,
+        radius: am5.percent(107),
+        color: am5.color('#00000'),
+        innerRadius: am5.percent(100),
+        startAngle: 360,
+        endAngle: 0,
+      })
+    );
+
+    series2.slices.template.setAll({
+      fillOpacity: 0.7,
+      strokeOpacity: 0,
+      templateField: 'settings',
+    });
+
+    // Set data
+    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+    series2.data.setAll([
+      {
+        value: 50,
+        settings: { fill: am5.color('#00000') },
+      },
+      {
+        value: 50,
         settings: { forceHidden: true },
       },
     ]);
@@ -83,37 +115,18 @@ function NestedDonut({ width }) {
     // start and end angle must be set both for chart and series
     let series1 = chart.series.push(
       am5percent.PieSeries.new(root, {
-        radius: am5.percent(75),
+        radius: am5.percent(85),
         innerRadius: am5.percent(65),
         valueField: 'value',
         categoryField: 'category',
-        alignLabels: false,
-        
       })
     );
-
-    series1.states.create('hidden', {
-      startAngle: 180,
-      endAngle: 180,
-    });
 
     series1.slices.template.setAll({
       templateField: 'sliceSettings',
       strokeOpacity: 0,
+      cornerRadius: 10,
     });
-
-    series1.labels.template.setAll({
-      textType: 'circular',
-    });
-
-    series1.labels.template.adapters.add('radius', function (radius, target) {
-      let dataItem = target.dataItem;
-      let slice = dataItem.get('slice');
-      return -(slice.get('radius') - slice.get('innerRadius')) / 2 - 10;
-    });
-
-    series1.slices.template.states.create('hover', { scale: 1 });
-    series1.slices.template.states.create('active', { shiftRadius: 0 });
 
     series1.ticks.template.setAll({
       forceHidden: true,
@@ -123,17 +136,10 @@ function NestedDonut({ width }) {
     // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
     series1.data.setAll([
       {
-        category: 'First',
-        value: 30,
-        sliceSettings: { fill: am5.color('#44C454'), },
-      },
-      {
-        category: 'Second',
-        value: 30,
+        value: 60,
         sliceSettings: { fill: am5.color('#44C454') },
       },
       {
-        category: 'Remaining',
         value: 30,
         sliceSettings: { fill: am5.color('#262626') },
       },
@@ -147,7 +153,12 @@ function NestedDonut({ width }) {
   return (
     <div
       id='chartdiv'
-      style={{ width: width ?? '50%', height: '500px' }}
+      style={{
+        width: width ?? '100%',
+        height: '500px',
+        border: '1px solid #23562a',
+        borderRadius:'10px'
+      }}
     ></div>
   );
 }

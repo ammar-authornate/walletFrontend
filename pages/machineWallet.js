@@ -9,7 +9,10 @@ import Chart from '../components/Chart';
 import BarGraph from '../components/BarGraph';
 import CustomizedTables from '../components/Table';
 import ChartScore from '../components/ChartScore';
-
+import Tree from '../components/Tree';
+import HalfPie from '../components/Halfpie';
+import LineChart from '../components/lineChart';
+import NestedDonut from '../components/lineChart2';
 
 const MachineWallet = () => {
   const [active, setActive] = useState(false);
@@ -116,8 +119,38 @@ const MachineWallet = () => {
         </div>
 
         <MarginSpacer mt='3vh' />
-        <Chart />
-        <Graph />
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <NestedDonut />
+        </div>
+        <div
+          style={{
+            padding: 0,
+            borderRadius: '40px',
+            background: '#262626',
+            marginTop: '3vh',
+          }}
+        >
+          <H1 style={{ paddingTop: '4vh', paddingLeft: '4vh' }}>
+            Score over Time
+          </H1>
+          <MarginSpacer mt='3vh' />
+
+          <LineChart width='100%' />
+        </div>
+        <div
+          style={{
+            padding: 0,
+            borderRadius: '40px',
+            background: '#262626',
+            marginTop: '3vh',
+          }}
+        >
+          <H1 style={{ paddingTop: '4vh', paddingLeft: '4vh' }}>
+            Wallet origin
+          </H1>
+          <Tree />
+        </div>
+
         <BarGraph />
         <CustomizedTables />
         <ChartScore />

@@ -16,6 +16,7 @@ function Tree({ width }) {
         layout: root.verticalLayout,
       })
     );
+    
 
     let series = container.children.push(
       am5hierarchy.ForceDirected.new(root, {
@@ -25,6 +26,8 @@ function Tree({ width }) {
         valueField: 'value',
         categoryField: 'name',
         childDataField: 'children',
+        minRadius: 10,
+        maxRadius: am5.percent(5)
       })
     );
 
@@ -33,165 +36,186 @@ function Tree({ width }) {
       strokeOpacity: 0,
       strokeDasharray: 0,
     });
+    series.circles.template.set('forceHidden', false);
+    series.outerCircles.template.set('forceHidden', true);
+
+    // Add an icon to node
+    series.nodes.template.setup = function (target) {
+      let icon = target.children.push(
+        am5.Picture.new(root, {
+          width: 30,
+          height: 30,
+          centerX: am5.percent(50),
+          centerY: am5.percent(50),
+          src: '/assets/Group.png',
+        })
+      );
+    };
+    series.links.template.setAll({
+      strokeWidth: 3,
+      strokeOpacity: 0.9,
+      strokeDasharray: 10,
+      strength:0
+    });
 
     series.outerCircles.template.states.create('hoverDisabled', {
       fillOpacity: 0.5,
       strokeOpacity: 0,
       strokeDasharray: 0,
     });
-    series.get('colors').set('colors', [am5.color(0x339c3f)]);
+    series.get('colors').set('colors', [am5.color('#302f2f')]);
     series.data.setAll([
       {
         name: 'Root',
         value: 0,
         children: [
           {
-            name: 'C0',
+            name: '',
             children: [
               {
-                name: 'C2A1',
+                name: '',
                 children: [
                   {
-                    name: 'C2A0A2',
-                    value: 24,
+                    name: '',
+                    value: '',
                   },
                   {
-                    name: 'C2A0B2',
-                    value: 89,
+                    name: '',
+                    value: '',
                   },
                   {
-                    name: 'C2A0C2',
+                    name: '',
                     children: [
                       {
-                        name: 'C2A0C2A3',
+                        name: '',
                         children: [
                           {
-                            name: 'C2A0C2A0A4',
+                            name: '',
                             children: [
                               {
-                                name: 'C2A0C2A0A00',
-                                value: 90,
+                                name: '',
+                                value: '',
                               },
                               {
-                                name: 'C2A0C2A0A01',
-                                value: 70,
+                                name: '',
+                                value: '',
                               },
                               {
-                                name: 'C2A0C2A0A02',
-                                value: 66,
+                                name: '',
+                                value: '',
                               },
                               {
-                                name: 'C2A0C2A0A03',
-                                value: 58,
+                                name: '',
+                                value: '',
                               },
                             ],
                           },
                           {
-                            name: 'C2A0C2A0B4',
+                            name: '',
                             children: [
                               {
-                                name: 'C2A0C2A0B10',
-                                value: 80,
+                                name: '',
+                                value: '',
                               },
                               {
-                                name: 'C2A0C2A0B11',
-                                value: 40,
+                                name: '',
+                                value: '',
                               },
                             ],
                           },
                         ],
                       },
                       {
-                        name: 'C2A0C2B3',
-                        value: 44,
+                        name: '',
+                        value: '',
                       },
                     ],
                   },
                   {
-                    name: 'C2A0D2',
+                    name: '',
                     children: [
                       {
-                        name: 'C2A0D3A3',
-                        value: 28,
+                        name: '',
+                        value: '',
                       },
                       {
-                        name: 'C2A0D3B3',
-                        value: 14,
+                        name: '',
+                        value: '',
                       },
                     ],
                   },
                 ],
               },
               {
-                name: 'C2B1',
-                value: 40,
+                name: '',
+                value: '',
               },
               {
-                name: 'C2C1',
+                name: '',
                 children: [
                   {
-                    name: 'C2C2A2',
+                    name: '',
                     children: [
                       {
-                        name: 'C2C2A0A3',
-                        value: 28,
+                        name: '',
+                        value: '',
                       },
                       {
-                        name: 'C2C2A0B3',
+                        name: '',
                         children: [
                           {
-                            name: 'C2C2A0B1A4',
-                            value: 19,
+                            name: '',
+                            value: '',
                           },
                           {
-                            name: 'C2C2A0B1B4',
+                            name: '',
                             children: [
                               {
-                                name: 'C2C2A0B1B10',
-                                value: 11,
+                                name: '',
+                                value: '',
                               },
                               {
-                                name: 'C2C2A0B1B11',
-                                value: 10,
+                                name: '',
+                                value: '',
                               },
                               {
-                                name: 'C2C2A0B1B12',
-                                value: 97,
+                                name: '',
+                                value: '',
                               },
                               {
-                                name: 'C2C2A0B1B13',
-                                value: 47,
+                                name: '',
+                                value: '',
                               },
                             ],
                           },
                           {
-                            name: 'C2C2A0B1C4',
+                            name: '',
                             children: [
                               {
-                                name: 'C2C2A0B1C20',
-                                value: 40,
+                                name: '',
+                                value: '',
                               },
                               {
-                                name: 'C2C2A0B1C21',
-                                value: 37,
+                                name: '',
+                                value: '',
                               },
                               {
-                                name: 'C2C2A0B1C22',
-                                value: 53,
+                                name: '',
+                                value: '',
                               },
                             ],
                           },
                         ],
                       },
                       {
-                        name: 'C2C2A0C3',
-                        value: 96,
+                        name: '',
+                        value: '',
                       },
                     ],
                   },
                   {
-                    name: 'C2C2B2',
-                    value: 66,
+                    name: '',
+                    value: '',
                   },
                 ],
               },
@@ -211,8 +235,9 @@ function Tree({ width }) {
 
   return (
     <div
-      id="directeddiv"
-      style={{ width: width ?? '100%', height: '500px' }}></div>
+      id='directeddiv'
+      style={{ width: width ?? '100%', height: '500px' }}
+    ></div>
   );
 }
 

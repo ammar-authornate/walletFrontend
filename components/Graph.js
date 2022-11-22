@@ -91,10 +91,13 @@ export default function Graph() {
             dataKey='total'
           />
           <Brush
+            startIndex={0}
+            endIndex={8}
+            fill='#44C454'
             dataKey='name'
-            height={32}
+            height={25}
             stroke='#262626'
-            gap={1}
+            gap={4}
             travellerWidth={8}
           />
           <Tooltip cursor={{ strokeDasharray: 6 }} />

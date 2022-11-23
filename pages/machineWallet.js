@@ -14,6 +14,8 @@ import LineChart from '../components/lineChart';
 import NestedDonut from '../components/PieChart';
 import HalfPie from '../components/BarChart';
 import PieChart2 from '../components/PieChart2';
+import NftTable from '../components/TableNft';
+import PieGreen from '../components/Pie';
 
 const MachineWallet = () => {
   const [active, setActive] = useState(false);
@@ -21,6 +23,7 @@ const MachineWallet = () => {
     setActive(!active);
   };
   const [activeButton, setActiveButton] = useState(0);
+  const [page, setPage] = useState('Overview');
   const labels = ['Overview', 'Trasansactions', 'Past Mints', 'Insight'];
   return (
     <div>
@@ -92,7 +95,9 @@ const MachineWallet = () => {
                     fontSize: '20px',
                   }}
                   key={i}
-                  onClick={() => setActiveButton(i)}
+                  onClick={() => {
+                    setActiveButton(i), setPage(btn);
+                  }}
                 >
                   {btn}
                 </Button>
@@ -119,51 +124,94 @@ const MachineWallet = () => {
           </div>
         </div>
         <MarginSpacer />
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <NestedDonut />
-        </div>
-        <div
-          style={{
-            padding: 0,
-            borderRadius: '40px',
-            background: '#262626',
-            marginTop: '3vh',
-          }}
-        >
-          <H1 style={{ paddingTop: '4vh', paddingLeft: '4vh' }}>
-            Score over Time
-          </H1>
-          <MarginSpacer mt='3vh' />
+        {page === 'Overview' && (
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <NestedDonut />
+            </div>
+            <div
+              style={{
+                padding: 0,
+                borderRadius: '40px',
+                background: '#262626',
+                marginTop: '3vh',
+              }}
+            >
+              <H1 style={{ paddingTop: '4vh', paddingLeft: '4vh' }}>
+                Score over Time
+              </H1>
+              <MarginSpacer mt='3vh' />
 
-          <LineChart width='100%' />
-        </div>
-        <div
-          style={{
-            padding: 0,
-            borderRadius: '40px',
-            background: '#262626',
-            marginTop: '3vh',
-          }}
-        >
-          <H1 style={{ paddingTop: '4vh', paddingLeft: '4vh' }}>
-            Wallet origin
-          </H1>
-          <Tree />
-        </div>
-
-        <CustomizedTables />
-        <div
-          style={{
-            padding: 0,
-            borderRadius: '40px',
-            background: '#262626',
-            marginTop: '3vh',
-          }}
-        >
-          <HalfPie />
-        </div>
-
-        <PieChart2 />
+              <LineChart width='100%' />
+            </div>
+            <div
+              style={{
+                padding: 0,
+                borderRadius: '40px',
+                background: '#262626',
+                marginTop: '3vh',
+              }}
+            >
+              <H1 style={{ paddingTop: '4vh', paddingLeft: '4vh' }}>
+                Wallet origin
+              </H1>
+              <Tree />
+            </div>
+          </div>
+        )}
+        {page === 'Trasansactions' && (
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <PieGreen />
+            </div>
+            <MarginSpacer mt='3vh' />
+            <CustomizedTables title={'Recent Transaction'} />
+            <div
+              style={{
+                padding: 0,
+                borderRadius: '40px',
+                background: '#262626',
+                marginTop: '3vh',
+              }}
+            >
+              <div
+                style={{
+                  padding: 0,
+                  borderRadius: '40px',
+                  background: '#262626',
+                  marginTop: '3vh',
+                }}
+              >
+                <H1 style={{ paddingTop: '4vh', paddingLeft: '4vh' }}>
+                  Asset Holding over Time
+                </H1>
+                <MarginSpacer mt='3vh' />
+                <HalfPie />
+              </div>
+            </div>
+            <MarginSpacer mt='3vh' />
+            <CustomizedTables title={'Assets inflow/outflow'} />
+          </div>
+        )}
+        {page === 'Past Mints' && (
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <PieGreen />
+            </div>
+            <MarginSpacer mt='3vh' />
+            <NftTable title={'Mints Participated'} />
+            <PieChart2 />
+            <MarginSpacer mt='3vh' />
+            <NftTable title={'ILO Participated'} />
+          </div>
+        )}
+        {page === 'Insight' && (
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <PieGreen />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

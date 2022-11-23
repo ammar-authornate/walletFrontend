@@ -12,6 +12,7 @@ const Table3 = ({ title }) => {
       type: 'journey',
       color: 'blue',
       impact: '4.5',
+      image: '1',
     },
     {
       name: 'Bitoin',
@@ -21,6 +22,7 @@ const Table3 = ({ title }) => {
       type: 'journey',
       color: '#478593',
       impact: '4.5',
+      image: '2',
     },
     {
       name: 'Bitoin',
@@ -30,6 +32,7 @@ const Table3 = ({ title }) => {
       type: 'journey',
       color: '#437859',
       impact: '4.5',
+      image: '3',
     },
     {
       name: 'Bitoin',
@@ -39,6 +42,7 @@ const Table3 = ({ title }) => {
       type: 'journey',
       color: 'pink',
       impact: '4.5',
+      image: '4',
     },
   ];
   return (
@@ -79,7 +83,16 @@ const Table3 = ({ title }) => {
             }}
             key={index}
           >
-            <H2>{data.name}</H2>
+            <div style={{ display: 'flex' }}>
+              <Image
+                src={`/assets/${data.image}.png`}
+                alt='ok'
+                width={'40px'}
+                style={{ marginRight: '1rem' }}
+              />
+              <H2>{data.name}</H2>
+            </div>
+
             <H2>{data.BTC} BTC</H2>
 
             <H2>${data.value}</H2>

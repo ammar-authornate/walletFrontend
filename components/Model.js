@@ -99,7 +99,21 @@ export const EmailModel = ({ bet, onClose }) => {
                   textAlign: 'center',
                 }}
               >
-                <Image src='/assets/meta.png' alt='meta' width={'40px'} />
+                <div
+                  style={{
+                    clipPath:
+                      'polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)',
+                    background: '#000',
+                    height: '50px',
+                    width: '50px',
+                    margin: '10px auto',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Image src='/assets/meta.png' alt='meta' width={'40px'} />
+                </div>
                 <H1
                   style={{
                     fontSize: '15px',
@@ -125,7 +139,11 @@ export const EmailModel = ({ bet, onClose }) => {
             </div>
           </InputBox>
           <MarginSpacer mt='2vh' />
-          <InputBox width={'100%'} background='rgba(0, 0, 0, 0.3)' align={'center'} >
+          <InputBox
+            width={'100%'}
+            background='rgba(0, 0, 0, 0.3)'
+            align={'center'}
+          >
             <div
               style={{
                 display: 'flex',
@@ -160,7 +178,7 @@ export const EmailModel = ({ bet, onClose }) => {
                   color: 'rgba(255,255,255, 0.4)',
                   height: '100%',
                   paddingBottom: '15px',
-                  border:'1px solid rgba(255,255,255, 0.4)'
+                  border: '1px solid rgba(255,255,255, 0.4)',
                 }}
               >
                 Connect
@@ -169,7 +187,11 @@ export const EmailModel = ({ bet, onClose }) => {
           </InputBox>
           <MarginSpacer mt='2vh' />
           <MarginSpacer mt='2vh' />
-          <InputBox width={'100%'} background='rgba(0, 0, 0, 0.3)' align={'center'} >
+          <InputBox
+            width={'100%'}
+            background='rgba(0, 0, 0, 0.3)'
+            align={'center'}
+          >
             <div
               style={{
                 display: 'flex',
@@ -204,7 +226,7 @@ export const EmailModel = ({ bet, onClose }) => {
                   color: 'rgba(255,255,255, 0.4)',
                   height: '100%',
                   paddingBottom: '15px',
-                  border:'1px solid rgba(255,255,255, 0.4)'
+                  border: '1px solid rgba(255,255,255, 0.4)',
                 }}
               >
                 Connect
@@ -212,7 +234,11 @@ export const EmailModel = ({ bet, onClose }) => {
             </div>
           </InputBox>
           <MarginSpacer mt='2vh' />
-          <InputBox width={'100%'} background='rgba(0, 0, 0, 0.3)' align={'center'} >
+          <InputBox
+            width={'100%'}
+            background='rgba(0, 0, 0, 0.3)'
+            align={'center'}
+          >
             <div
               style={{
                 display: 'flex',
@@ -247,7 +273,7 @@ export const EmailModel = ({ bet, onClose }) => {
                   color: 'rgba(255,255,255, 0.4)',
                   height: '100%',
                   paddingBottom: '15px',
-                  border:'1px solid rgba(255,255,255, 0.4)'
+                  border: '1px solid rgba(255,255,255, 0.4)',
                 }}
               >
                 Connect

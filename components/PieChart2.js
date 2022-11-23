@@ -32,7 +32,7 @@ function PieChart2({ width }) {
 
       {
         category: 'Marketing',
-        value: 35,
+        value: 100,
         full: 100,
         columnSettings: {
           fill: chart.get('colors').getIndex(1),
@@ -48,10 +48,10 @@ function PieChart2({ width }) {
       },
       {
         category: 'Human Resources',
-        value: 68,
+        value: 98,
         full: 100,
         columnSettings: {
-          fill: chart.get('colors').getIndex(3),
+          fill: am5.color('#44C454'),
         },
       },
     ];

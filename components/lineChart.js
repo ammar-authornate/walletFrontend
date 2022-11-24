@@ -98,13 +98,15 @@ function LineChart({ width }) {
     series.fills.template.setAll({
       visible: true,
       fillOpacity: 0.2,
+      
     });
+
 
     series.bullets.push(function () {
       return am5.Bullet.new(root, {
         locationY: 0,
         sprite: am5.Circle.new(root, {
-          radius: 7,
+          radius: 8,
           stroke: root.interfaceColors.get('background'),
           strokeWidth: 2,
           fill: series.get('fill'),

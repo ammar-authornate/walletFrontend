@@ -5,10 +5,7 @@ import { InputBox } from '../components/TextBox';
 import { H1 } from '../components/TypoGraphy';
 import { Image } from '../components/Image';
 import { MarginSpacer } from '../components/Spacer';
-import Chart from '../components/Chart';
-import BarGraph from '../components/BarGraph';
 import CustomizedTables from '../components/Table';
-import ChartScore from '../components/ChartScore';
 import Tree from '../components/Tree';
 import LineChart from '../components/lineChart';
 import NestedDonut from '../components/PieChart';
@@ -16,6 +13,8 @@ import HalfPie from '../components/BarChart';
 import PieChart2 from '../components/PieChart2';
 import NftTable from '../components/TableNft';
 import PieGreen from '../components/Pie';
+import { IconButton } from '../components/Button';
+import { MainHome, AlignCenter, CenterItems } from '../components/Styles';
 
 const MachineWallet = () => {
   const [active, setActive] = useState(false);
@@ -24,10 +23,27 @@ const MachineWallet = () => {
   };
   const [activeButton, setActiveButton] = useState(0);
   const [page, setPage] = useState('Overview');
-  const labels = ['Overview', 'Trasansactions', 'Past Mints', 'Insight'];
+  const labels = [
+    {
+      name: 'Overview',
+      icon: '1icon',
+    },
+    {
+      name: 'Trasansaction',
+      icon: '2icon',
+    },
+    {
+      name: 'Past Mints',
+      icon: '4icon',
+    },
+    {
+      name: 'Insight',
+      icon: '3icon',
+    },
+  ];
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <CenterItems data-aos='fade-down'>
         <MarginSpacer mt='2vh' />
         <div
           style={{
@@ -38,7 +54,7 @@ const MachineWallet = () => {
             alignItems: 'center',
           }}
         >
-          <Button
+          <IconButton
             style={{
               backgroundColor: active === true ? '#262626' : '#44C454',
               width: '10rem',
@@ -48,7 +64,7 @@ const MachineWallet = () => {
             onClick={handleClick}
           >
             Nft
-          </Button>
+          </IconButton>
           <Button
             style={{
               backgroundColor: active ? '#44C454' : '#262626',
@@ -62,7 +78,7 @@ const MachineWallet = () => {
             Crypto
           </Button>
         </div>
-      </div>
+      </CenterItems>
       <div style={{ marginLeft: '6rem', marginRight: '6rem' }}>
         <MarginSpacer mt='3vh' />
 
@@ -77,6 +93,9 @@ const MachineWallet = () => {
           }}
         >
           <div
+            data-aos='fade-right'
+            data-aos-offset='300'
+            data-aos-easing='ease-in-sine'
             style={{
               display: 'flex',
               justifyContent: 'center',
@@ -87,33 +106,45 @@ const MachineWallet = () => {
           >
             <InputBox padding={'8px'}>
               {labels.map((btn, i) => (
-                <Button
+                <IconButton
+                  icon={`/assets/${btn.icon}.png`}
                   style={{
                     backgroundColor: i === activeButton ? '#44C454' : '#262626',
-                    width: '10rem',
                     color: 'white',
-                    fontSize: '20px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '20px',
+                    fontSize: '18px',
                   }}
                   key={i}
                   onClick={() => {
-                    setActiveButton(i), setPage(btn);
+                    setActiveButton(i), setPage(btn.name);
                   }}
                 >
-                  {btn}
-                </Button>
+                  {btn.name}
+                </IconButton>
               ))}
             </InputBox>
           </div>
 
           <div
+            data-aos='fade-left'
+            data-aos-offset='300'
+            data-aos-easing='ease-in-sine'
             style={{
               display: 'flex',
               alignItems: 'center',
-              opacity: '0.7',
+              opacity: '0.4',
             }}
           >
             <Image src='/assets/walleticon.png' alt='wallets' />
-            <H1 style={{ fontSize: '22px', marginLeft: '1rem' }}>
+            <H1
+              style={{
+                fontSize: '22px',
+                marginLeft: '1rem',
+                fontWeight: '400',
+              }}
+            >
               00x234535k43nfg4i35g34gh444
             </H1>
             <Image
@@ -125,7 +156,7 @@ const MachineWallet = () => {
         </div>
         <MarginSpacer />
         {page === 'Overview' && (
-          <div>
+          <div data-aos='fade-up' data-aos-anchor-placement='top-bottom'>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <NestedDonut />
             </div>
@@ -159,8 +190,8 @@ const MachineWallet = () => {
             </div>
           </div>
         )}
-        {page === 'Trasansactions' && (
-          <div>
+        {page === 'Trasansaction' && (
+          <div data-aos='fade-up' data-aos-anchor-placement='top-bottom'>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <PieGreen />
             </div>
@@ -194,21 +225,75 @@ const MachineWallet = () => {
           </div>
         )}
         {page === 'Past Mints' && (
-          <div>
+          <div data-aos='fade-up' data-aos-anchor-placement='top-bottom'>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <PieGreen />
             </div>
             <MarginSpacer mt='3vh' />
             <NftTable title={'Mints Participated'} />
-            <PieChart2 />
+            <div
+              style={{
+                padding: 0,
+                borderRadius: '40px',
+                background: '#262626',
+                marginTop: '3vh',
+              }}
+            >
+              <H1
+                style={{
+                  paddingTop: '4vh',
+                  paddingLeft: '4vh',
+                  fontSize: '25px',
+                }}
+              >
+                Primary Sales Participation Quality
+              </H1>
+              <PieChart2 />
+            </div>
             <MarginSpacer mt='3vh' />
             <NftTable title={'ILO Participated'} />
           </div>
         )}
         {page === 'Insight' && (
-          <div>
+          <div data-aos='fade-up' data-aos-anchor-placement='top-bottom'>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <PieGreen />
+            </div>
+            <div>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-evenly',
+                  alignItems: 'center',
+                  background: '#262626',
+                  borderRadius: '20px',
+                  padding: '40px',
+                }}
+              >
+                <Image src='/assets/Group.png' height={'200px'} alt='group' />
+                <div>
+                  <H1 style={{ lineHeight: '50px' }}>
+                    You can improve your score by holding assets for a longer{' '}
+                    <br /> time. Dropping values will decrease the score rate
+                    quickly.
+                  </H1>
+                  <H1
+                    style={{
+                      fontSize: '17px',
+                      marginTop: '2.5rem',
+                      opacity: '0.5',
+                    }}
+                  >
+                    it is a long established fact that a reader will be
+                    distracted by the readable content of a page when looking at{' '}
+                    <br />
+                    its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as <br />{' '}
+                    opposed to using .Content here, content here, making it look
+                    like readable English.
+                  </H1>
+                </div>
+              </div>
             </div>
           </div>
         )}

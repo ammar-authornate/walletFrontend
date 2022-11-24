@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { H1 } from '../components/TypoGraphy';
 import { Image } from '../components/Image';
 import { EmailModel } from '../components/Model';
@@ -6,8 +6,13 @@ import { MarginSpacer } from '../components/Spacer';
 import { Button } from '../components/Button';
 import { InputBox } from '../components/TextBox';
 import Link from 'next/link';
+import Aos from 'aos';
+import { CenterItems, MainHome, AlignCenter } from '../components/Styles';
 
 export default function Home() {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   const [signUpModel, setSignUpModel] = useState(false);
 
   const [active, setActive] = useState(false);
@@ -18,6 +23,7 @@ export default function Home() {
   const emailModel = (bet) => {
     setSignUpModel(true);
   };
+
   const [scorePage, setScorePage] = useState(false);
   const [homePage, setHomePage] = useState(true);
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -26,26 +32,21 @@ export default function Home() {
       {signUpModel && <EmailModel onClose={() => setSignUpModel(false)} />}
       <div>
         {homePage && (
-          <div style={{ width: 'auto' }}>
+          <div data-aos='fade-up' style={{ width: 'auto' }}>
             <MarginSpacer mt='2vh' />
             <div style={{ textAlign: 'center' }}>
-              <H1 style={{ fontSize: '25px' }}>
+              <H1 style={{ fontSize: '30px' }}>
                 Track the Value <br /> of your assets
               </H1>
-              <MarginSpacer mt='5vh' />
+              <MarginSpacer mt='3vh' />
               <H1 style={{ fontSize: '12px', opacity: '0.6' }}>
-                Track the Value Your assets from any platform you want
+                Track the value your assets from any platform you all in one
+                place
               </H1>
-              <MarginSpacer mt='5vh' />
+              <MarginSpacer mt='6vh' />
             </div>
             <MarginSpacer mt='2vh' />
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                width: 'auto',
-              }}
-            >
+            <CenterItems>
               <InputBox
                 align={'center'}
                 border={'20px'}
@@ -53,49 +54,41 @@ export default function Home() {
                 marginRight={'20px'}
               >
                 <div style={{ margin: '20px', width: '100%' }}>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                    }}
-                  >
+                  <MainHome>
                     <H1 style={{ fontSize: '20px' }}>Your Wallet</H1>
                     <Image src='/assets/tick.png' alt='hello' />
-                  </div>
+                  </MainHome>
                   <MarginSpacer mt='2vh' />
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      width: '100%',
-                    }}
-                  >
+                  <CenterItems>
                     <InputBox
                       width={'100%'}
                       background={'black'}
                       align={'center'}
                       border={'10px'}
+                      padding={'10px'}
                     >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                      <AlignCenter>
                         <Image src='/assets/tick.png' alt='tick' />
                         <H1
                           style={{
                             fontSize: '15px',
                             opacity: '0.9',
                             marginLeft: '15px',
+                            display: 'inline-block',
+                            wordBreak: 'break-word',
                           }}
                         >
                           0xHakasdfkjs...sgdgd
                         </H1>
-                      </div>
+                      </AlignCenter>
                       <Image src='/assets/Copy.png' alt='tick' />
                     </InputBox>
-                  </div>
+                  </CenterItems>
                   <MarginSpacer mt='2vh' />
                   <H1
                     style={{
                       opacity: '0.7',
-                      fontSize: '20px',
+                      fontSize: '15px',
                       textAlign: 'start',
                     }}
                   >
@@ -112,43 +105,43 @@ export default function Home() {
               </InputBox>
               <InputBox align={'center'} border={'20px'} width={'25%'}>
                 <div style={{ margin: '20px', width: '100%' }}>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                    }}
-                  >
+                  <MainHome>
                     <H1 style={{ fontSize: '20px' }}>Bulk Report</H1>
                     <Image src='/assets/tick.png' alt='hello' />
-                  </div>
+                  </MainHome>
                   <MarginSpacer mt='2vh' />
-                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <CenterItems>
                     <InputBox
                       background={'black'}
                       width={'100%'}
                       align={'center'}
                       border={'10px'}
+                      padding={'10px'}
                     >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                      <AlignCenter>
                         <Image src='/assets/walleticon.png' alt='tick' />
                         <H1
                           style={{
                             fontSize: '15px',
                             opacity: '0.5',
+                            display: 'inline-block',
+                            wordBreak: 'break-word',
                             marginLeft: '15px',
                           }}
                         >
                           bulk-report csv
                         </H1>
+                      </AlignCenter>
+                      <div>
+                        <Image src='/assets/Copy.png' alt='tick' />
                       </div>
-                      <Image src='/assets/Copy.png' alt='tick' />
                     </InputBox>
-                  </div>
+                  </CenterItems>
                   <MarginSpacer mt='2vh' />
                   <H1
                     style={{
                       opacity: '0.7',
-                      fontSize: '15px',
+                      fontSize: '12px',
                       textAlign: 'start',
                     }}
                   >
@@ -167,7 +160,7 @@ export default function Home() {
                   </Link>
                 </div>
               </InputBox>
-            </div>
+            </CenterItems>
             <MarginSpacer mt='2vh' />
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <InputBox
@@ -175,7 +168,7 @@ export default function Home() {
                 border={'20px'}
                 width={'25%'}
                 marginRight={'20px'}
-                background={'#44C454'}
+                background={'#34A542'}
               >
                 <div style={{ margin: '20px', width: '100%' }}>
                   <div
@@ -193,6 +186,7 @@ export default function Home() {
                       background={'white'}
                       align={'center'}
                       border={'10px'}
+                      padding={'10px'}
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <Image src='/assets/walleticon.png' alt='tick' />
@@ -202,6 +196,8 @@ export default function Home() {
                             opacity: '0.9',
                             marginLeft: '15px',
                             color: 'black',
+                            display: 'inline-block',
+                            wordBreak: 'break-word',
                           }}
                         >
                           0xHakasdfkjs...sgdgd

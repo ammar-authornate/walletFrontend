@@ -47,7 +47,7 @@ const Table3 = ({ title }) => {
   ];
   return (
     <div
-      style={{ background: '#262626', padding: '20px', borderRadius: '20px' }}
+      style={{ background: '#262626', padding: '25px', borderRadius: '20px' }}
     >
       <H1>{title}</H1>
       <MarginSpacer mb='3vh' />
@@ -56,12 +56,11 @@ const Table3 = ({ title }) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          marginLeft: '5.5rem',
         }}
       >
         <H2>Name</H2>
-        <H2>Value(Coin)</H2>
-
-        <H2>Value($)</H2>
+        <H2>Collection</H2>
 
         <H2>Flip Time</H2>
         <H2>Impact on Score</H2>
@@ -83,17 +82,17 @@ const Table3 = ({ title }) => {
             }}
             key={index}
           >
-            <div style={{ display: 'flex' }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
               <Image
                 src={`/assets/${data.image}.png`}
                 alt='ok'
                 width={'40px'}
-                style={{ marginRight: '1rem' }}
+                style={{ marginRight: '2rem' }}
               />
-              <H2>{data.name}</H2>
+              <H1 style={{ fontSize: '18px', fontWeight: '600' }}>
+                {data.name}
+              </H1>
             </div>
-
-            <H2>{data.BTC} BTC</H2>
 
             <H2>${data.value}</H2>
             <div style={{ display: 'flex', alignItems: 'center' }}>

@@ -1,5 +1,6 @@
 import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
+import "aos/dist/aos.css";
 import styles from '../styles/Home.module.css';
 import '../styles/globals.css';
 

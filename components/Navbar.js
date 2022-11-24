@@ -9,6 +9,10 @@ import Link from 'next/link';
 const NavbarWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    display:flex;
+    flex-direction: column;
+  }
 `;
 const NavbarItems = styled.div`
   display: flex;
@@ -19,9 +23,9 @@ const NavbarMenu = styled.div`
   margin-left: 30px;
 `;
 export function Navbar() {
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const isMobile = typeof window !== 'undefined' && window.innerWidth == 768;
   return (
-    <NavbarWrapper>
+    <NavbarWrapper data-aos='fade-down-right'>
       <Link
         href={'/'}
         style={
@@ -56,14 +60,27 @@ export function Navbar() {
           <H1 style={{ fontSize: '30px', color: '#44C454' }}>wallet</H1>
         </div>
       </Link>
-      <NavbarItems style={{ alignItems: 'center' }}>
-        <InputBox background={'black'} border={'10px'} padding={'7px'}>
+      <NavbarItems style={{ display: 'flex', alignItems: 'center' }}>
+        <Image src='/assets/print.png' alt='print' width={'22px'} />
+        <H1
+          style={{
+            marginLeft: '12px',
+            marginRight: '20px',
+            opacity: '0.6',
+            fontSize: '16px',
+            fontWeight: '400',
+          }}
+        >
+          Print&nbsp;Report
+        </H1>
+        <InputBox background={'black'} border={'20px'} padding={'7px'}>
           <InputBox border={'10px'} align={'center'} width={'100%'}>
             <div
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 width: '35vh',
+                alignItems: 'center',
               }}
             >
               <H1 style={{ fontSize: '15px' }}>$0.00</H1>

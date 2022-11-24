@@ -3,6 +3,8 @@ import * as am5 from '@amcharts/amcharts5';
 import * as am5percent from '@amcharts/amcharts5/percent';
 
 import am5themes_Animated from '@amcharts/amcharts5/themes/Dark';
+import { H1, H3 } from './TypoGraphy';
+import { Image } from './Image';
 
 function NestedDonut({ width }) {
   const pieRef = (useRef < am5.Container) | (null > null);
@@ -33,6 +35,8 @@ function NestedDonut({ width }) {
         radius: am5.percent(60),
         color: am5.color('#44C454'),
         innerRadius: am5.percent(90),
+        startAngle:0,
+        endAngle:360,
       })
     );
     series0.labels.template.set('visible', false);
@@ -56,6 +60,7 @@ function NestedDonut({ width }) {
     series0.labels.template.setAll({
       templateField: 'settings',
     });
+    
 
     series0.ticks.template.setAll({
       templateField: 'settings',
@@ -123,6 +128,8 @@ function NestedDonut({ width }) {
         innerRadius: am5.percent(65),
         valueField: 'value',
         categoryField: 'category',
+        startAngle:0,
+        endAngle:360,
       })
     );
     let label = series1.children.push(
@@ -194,8 +201,63 @@ function NestedDonut({ width }) {
         height: '500px',
         border: '1px solid #23562a',
         borderRadius: '10px',
+        position:'relative'
       }}
-    ></div>
+    >
+      <div
+        style={{
+          display: 'flex',
+          justifyContent:'flex-end',
+          marginRight: '20px',
+          position: 'absolute',
+          right:0,
+          bottom:20,
+          top:70
+
+        }}
+      >
+        <div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <H1 style={{ fontSize: '45px' }}>400</H1>
+            <div
+              style={{
+                fontSize: '20px',
+                opacity: '0.4',
+                fontWeight: '800',
+                color: ' white',
+              }}
+            >
+              /
+            </div>{' '}
+            <H1 style={{ fontSize: 'px', opacity: '0.4', fontWeight: '400' }}>
+              800
+            </H1>
+          </div>
+          <div
+            style={{
+              background: '#302f2f',
+              borderRadius: '22px',
+              padding: '14px',
+              display: 'flex',
+              marginTop: '10px',
+            }}
+          >
+            <Image src='/assets/greendot.png' alt='greendot' width={'20px'} />
+            <H1
+              style={{ fontSize: '16px', marginLeft: '5px', fontWeight: '500' }}
+            >
+              Very Good
+            </H1>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

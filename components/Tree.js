@@ -2,6 +2,9 @@ import React, { useLayoutEffect, useRef } from 'react';
 import * as am5 from '@amcharts/amcharts5';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Dark';
 import * as am5hierarchy from '@amcharts/amcharts5/hierarchy';
+import { MarginSpacer } from './Spacer';
+import { Image } from './Image';
+import { H1 } from './TypoGraphy';
 function Tree({ width }) {
   const pieRef = useRef(null);
   useLayoutEffect(() => {
@@ -16,23 +19,22 @@ function Tree({ width }) {
         layout: root.verticalLayout,
       })
     );
-    
 
     let series = container.children.push(
       am5hierarchy.ForceDirected.new(root, {
         downDepth: 1,
-        initialDepth: 2,
+        initialDepth: 3,
         topDepth: 1,
         valueField: 'value',
         categoryField: 'name',
         childDataField: 'children',
         minRadius: 10,
-        maxRadius: am5.percent(5)
+        maxRadius: am5.percent(5),
       })
     );
 
     series.outerCircles.template.states.create('disabled', {
-      fillOpacity: 0.5,
+      fillOpacity: 1,
       strokeOpacity: 0,
       strokeDasharray: 0,
     });
@@ -53,13 +55,13 @@ function Tree({ width }) {
     };
     series.links.template.setAll({
       strokeWidth: 3,
-      strokeOpacity: 0.9,
+      strokeOpacity: 1,
       strokeDasharray: 10,
-      strength:0
+      strength: 0,
     });
 
     series.outerCircles.template.states.create('hoverDisabled', {
-      fillOpacity: 0.5,
+      fillOpacity: 1,
       strokeOpacity: 0,
       strokeDasharray: 0,
     });
@@ -234,10 +236,50 @@ function Tree({ width }) {
   }, []);
 
   return (
-    <div
-      id='directeddiv'
-      style={{ width: width ?? '100%', height: '500px' }}
-    ></div>
+    <div style={{ padding: '2rem' }}>
+      <div
+        id='directeddiv'
+        style={{ width: width ?? '100%', height: '500px' }}
+      ></div>
+      <div
+        style={{
+          display: 'flex',
+          marginLeft: '5rem',
+          background: '#302f2f',
+          borderRadius: '20px',
+          alignItems: 'center',
+          width: '30%',
+          padding: '7px',
+        }}
+      >
+        <div
+          style={{
+            background: '#34A642',
+            borderRadius: '30px',
+            padding: '20px',
+          }}
+        >
+          <Image src='/assets/walletwhite.png' />
+        </div>
+        <div style={{ marginLeft: '2rem', }}>
+          <H1 style={{ fontSize: '20px', fontWeight: '500' }}>
+            Effect top score 6.3%
+          </H1>
+          <H1
+            style={{
+              fontSize: '18px',
+              opacity: 0.5,
+              fontWeight: '500',
+              display:'inline-block',
+              wordBreak:'break-word',
+              
+            }}
+          >
+            00xrtjiowert3454534t89u453t93fz
+          </H1>
+        </div>
+      </div>
+    </div>
   );
 }
 

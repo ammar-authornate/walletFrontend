@@ -8,6 +8,7 @@ import { H1 } from './TypoGraphy';
 const NavbarWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top:20px
 `;
 const NavbarItems = styled.div`
   display: flex;

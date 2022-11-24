@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import * as am5 from '@amcharts/amcharts5';
 import * as am5percent from '@amcharts/amcharts5/percent';
-
+import { H1, H3 } from './TypoGraphy';
+import { Image } from './Image';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Dark';
 
 function PieGreen({ width }) {
@@ -33,6 +34,8 @@ function PieGreen({ width }) {
         radius: am5.percent(60),
         color: am5.color('#44C454'),
         innerRadius: am5.percent(90),
+        startAngle:0,
+        endAngle:360,
       })
     );
 
@@ -72,7 +75,7 @@ function PieGreen({ width }) {
       {
         category: 'First + Second',
         value: 60,
-        settings: { fill: am5.color('#44C454') },
+        settings: { fill: am5.color('#34A642') },
       },
       {
         category: 'Unused',
@@ -80,7 +83,7 @@ function PieGreen({ width }) {
         settings: { forceHidden: true },
       },
     ]);
-    
+
     // Create series
     // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
     // start and end angle must be set both for chart and series
@@ -89,6 +92,8 @@ function PieGreen({ width }) {
         radius: am5.percent(85),
         innerRadius: am5.percent(65),
         valueField: 'value',
+        startAngle:0,
+        endAngle:360,
         categoryField: 'category',
       })
     );
@@ -104,25 +109,25 @@ function PieGreen({ width }) {
       })
     );
     let tooltip = am5.Tooltip.new(root, {
-        getFillFromSprite: false,
-        getStrokeFromSprite: true,
-        autoTextColor: false,
-        getLabelFillFromSprite: true,
-        labelText: `400 /800`,
-        html: '<h1>400</h1>',
-      });
-  
-      tooltip?.get('background')?.setAll({
-        fill: am5.color(0xffffff),
-        fillOpacity: 0.8,
-      });
-  
-      series1.set('tooltip', tooltip);
-      series1.labels.template.setAll({
-        textType: 'circular',
-        centerX: 0,
-        centerY: 0,
-      });
+      getFillFromSprite: false,
+      getStrokeFromSprite: true,
+      autoTextColor: false,
+      getLabelFillFromSprite: true,
+      labelText: `400 /800`,
+      html: '<h1>400</h1>',
+    });
+
+    tooltip?.get('background')?.setAll({
+      fill: am5.color(0xffffff),
+      fillOpacity: 0.8,
+    });
+
+    series1.set('tooltip', tooltip);
+    series1.labels.template.setAll({
+      textType: 'circular',
+      centerX: 0,
+      centerY: 0,
+    });
 
     series1.slices.template.setAll({
       templateField: 'sliceSettings',
@@ -161,9 +166,63 @@ function PieGreen({ width }) {
         width: width ?? '100%',
         height: '430px',
         border: '1px solid #23562a',
-        borderRadius:'10px'
+        borderRadius: '10px',
+        position: 'relative',
       }}
-    ></div>
+    >
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginRight: '20px',
+          position: 'absolute',
+          right: '23%',
+          bottom: 20,
+          top: 70,
+        }}
+      >
+        <div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <H1 style={{ fontSize: '45px' }}>400</H1>
+            <div
+              style={{
+                fontSize: '20px',
+                opacity: '0.4',
+                fontWeight: '800',
+                color: ' white',
+              }}
+            >
+              /
+            </div>{' '}
+            <H1 style={{ fontSize: 'px', opacity: '0.4', fontWeight: '400' }}>
+              800
+            </H1>
+          </div>
+          <div
+            style={{
+              background: '#302f2f',
+              borderRadius: '22px',
+              padding: '14px',
+              display: 'flex',
+              marginTop: '10px',
+            }}
+          >
+            <Image src='/assets/greendot.png' alt='greendot' width={'20px'} />
+            <H1
+              style={{ fontSize: '16px', marginLeft: '5px', fontWeight: '500' }}
+            >
+              Very Good
+            </H1>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

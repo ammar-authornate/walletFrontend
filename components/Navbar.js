@@ -10,7 +10,7 @@ const NavbarWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   @media (max-width: 768px) {
-    display:flex;
+    display: flex;
     flex-direction: column;
   }
 `;
@@ -83,6 +83,7 @@ export function Navbar() {
                 alignItems: 'center',
               }}
             >
+              <Image src='/assets/greendot.png' alt='greendot' width={'15px'} />
               <H1 style={{ fontSize: '15px' }}>$0.00</H1>
               <H1 style={{ fontSize: '15px' }}>Connected to</H1>
               <div

@@ -52,6 +52,7 @@ const Table3 = ({ title }) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          margin: '10px',
         }}
       >
         <H2>Name</H2>

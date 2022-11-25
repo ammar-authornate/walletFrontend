@@ -1,6 +1,6 @@
 .container {
   padding: 2rem 4rem;
-  background: radial-gradient(at bottom left, rgba(10, 30, 11, 1) 0%, rgba(33, 33, 33, 0.8) 60%);
+  background: radial-gradient(at bottom left, rgba(10, 30, 11, 1) 0%, rgba(33, 33, 33, 0.8) 70%);
   border-radius:30px;
   backdrop-filter: blur(100px);
   margin: 25px;

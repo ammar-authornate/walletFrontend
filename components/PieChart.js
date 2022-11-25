@@ -199,9 +199,10 @@ function NestedDonut({ width }) {
       style={{
         width: width ?? '100%',
         height: '500px',
-        border: '1px solid #23562a',
+        border: '1px solid ',
         borderRadius: '0px 0px 0px 0px',
         borderBottom:'0px',
+        borderImage:'linear-gradient(180deg,#44C454,transparent) 1 100%',
         position:'relative'
       }}
     >

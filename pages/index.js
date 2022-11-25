@@ -82,7 +82,7 @@ export default function Home() {
                       <Image
                         src='/assets/Copy.png'
                         alt='tick'
-                        style={{ cursor: 'pointer' }}
+                        style={{ cursor: 'pointer', }}
                         onClick={() => navigator.clipboard.writeText(value)}
                       />
                     </InputBox>

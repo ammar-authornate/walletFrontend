@@ -293,7 +293,46 @@ const MachineWallet = () => {
                   </H1>
                 </div>
               </div>
+              <MarginSpacer mt='2vh'/>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  width: '100%',
+                  alignItems: 'center',
+                }}
+              >
+                <div
+                  style={{
+                    width: '100px',
+                    borderWidth: '0.00001px',
+                    borderStyle: 'solid',
+                    marginRight: '5px',
+                    height: '1px',
+                    borderImage:
+                      'linear-gradient(213deg,#fff 1%,#fff 50%,#000) 100% 0 100% 0/3px 0 3px 0 stretch',
+                  }}
+                ></div>
+                <Image
+                  src='/assets/greendot.png'
+                  alt='greendot'
+                  width={'20px'}
+                />
+                <div
+                  style={{
+                    width: '100px',
+                    marginLeft: '5px',
+                    borderWidth: '0.00001px',
+                    borderStyle: 'solid',
+                    height: '1px',
+                    borderImage:
+                      'linear-gradient(90deg,#fff 1%,#fff 50%,#000) 100% 0 100% 0/3px 0 3px 0 stretch',
+                  }}
+                ></div>
+              </div>
             </div>
+            <MarginSpacer mt='2vh'/>
+            
           </div>
         )}
       </div>

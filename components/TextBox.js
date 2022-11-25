@@ -11,9 +11,8 @@ const InputWrapper = styled.div`
   border: ${(props) => (props.textBorder ? props.textBorder : '')};
   background: ${(props) => (props.background ? props.background : '#262626')};
   border-radius: ${(props) => (props.border ? props.border : '100px')};
-  cursor: pointer;
   :hover {
-    opacity: 0.6;
+    opacity: 0.9;
   }
 `;
 

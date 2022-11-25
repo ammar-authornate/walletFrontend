@@ -123,7 +123,7 @@ const Table3 = ({ title }) => {
         }}
       >
         <H1
-          style={{ textAlign: 'center', fontSize: '20px', marginRight: '1rem' }}
+          style={{ textAlign: 'center', fontSize: '20px', marginRight: '1rem',cursor:'pointer' }}
         >
           See all{' '}
         </H1>

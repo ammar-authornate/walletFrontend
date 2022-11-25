@@ -8,6 +8,7 @@ import { InputBox } from '../components/TextBox';
 import Link from 'next/link';
 import Aos from 'aos';
 import { CenterItems, MainHome, AlignCenter } from '../components/Styles';
+import Textbox from '../components/inputBox';
 
 export default function Home() {
   useEffect(() => {
@@ -23,13 +24,16 @@ export default function Home() {
   const emailModel = (bet) => {
     setSignUpModel(true);
   };
+  const [value, setValue] = useState('0xHakasdfk...sgdgd');
+  const [report, setReport] = useState('bulk-report csv');
+  const [analyse, setAnalyse] = useState('0xHakasdfk...sgdgd');
 
   const [scorePage, setScorePage] = useState(false);
   const [homePage, setHomePage] = useState(true);
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   return (
     <div>
-      {signUpModel && <EmailModel onClose={() => setSignUpModel(false)} />}
+      {/* {signUpModel && <EmailModel onClose={() => setSignUpModel(false)} />} */}
       <div>
         {homePage && (
           <div data-aos='fade-up' style={{ width: 'auto' }}>
@@ -68,20 +72,19 @@ export default function Home() {
                       padding={'10px'}
                     >
                       <AlignCenter>
-                        <Image src='/assets/tick.png' alt='tick' />
-                        <H1
-                          style={{
-                            fontSize: '15px',
-                            opacity: '0.9',
-                            marginLeft: '15px',
-                            display: 'inline-block',
-                            wordBreak: 'break-word',
-                          }}
-                        >
-                          0xHakasdfkjs...sgdgd
-                        </H1>
+                        <Textbox
+                          icon='/assets/tick.png'
+                          color='rgba(255, 255, 255, 1)'
+                          value={value}
+                          onChange={(e) => setValue(e.target.value)}
+                        />
                       </AlignCenter>
-                      <Image src='/assets/Copy.png' alt='tick' />
+                      <Image
+                        src='/assets/Copy.png'
+                        alt='tick'
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => navigator.clipboard.writeText(value)}
+                      />
                     </InputBox>
                   </CenterItems>
                   <MarginSpacer mt='2vh' />
@@ -119,21 +122,19 @@ export default function Home() {
                       padding={'10px'}
                     >
                       <AlignCenter>
-                        <Image src='/assets/walleticon.png' alt='tick' />
-                        <H1
-                          style={{
-                            fontSize: '15px',
-                            opacity: '0.5',
-                            display: 'inline-block',
-                            wordBreak: 'break-word',
-                            marginLeft: '15px',
-                          }}
-                        >
-                          bulk-report csv
-                        </H1>
+                        <Textbox
+                          icon='/assets/walleticon.png'
+                          value={report}
+                          onChange={(e) => setReport(e.target.value)}
+                        />
                       </AlignCenter>
                       <div>
-                        <Image src='/assets/Copy.png' alt='tick' />
+                        <Image
+                          src='/assets/Copy.png'
+                          alt='tick'
+                          style={{ cursor: 'pointer' }}
+                          onClick={() => navigator.clipboard.writeText(report)}
+                        />
                       </div>
                     </InputBox>
                   </CenterItems>
@@ -189,21 +190,21 @@ export default function Home() {
                       padding={'10px'}
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <Image src='/assets/walleticon.png' alt='tick' />
-                        <H1
-                          style={{
-                            fontSize: '15px',
-                            opacity: '0.9',
-                            marginLeft: '15px',
-                            color: 'black',
-                            display: 'inline-block',
-                            wordBreak: 'break-word',
-                          }}
-                        >
-                          0xHakasdfkjs...sgdgd
-                        </H1>
+                        <AlignCenter>
+                          <Textbox
+                            icon='/assets/walleticon.png'
+                            color='rgba(0, 0, 0, 1)'
+                            value={analyse}
+                            onChange={(e) => setAnalyse(e.target.value)}
+                          />
+                        </AlignCenter>
                       </div>
-                      <Image src='/assets/copyblack.png' alt='tick' />
+                      <Image
+                        src='/assets/copyblack.png'
+                        alt='tick'
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => navigator.clipboard.writeText(analyse)}
+                      />
                     </InputBox>
                   </div>
                   <MarginSpacer mt='2vh' />

@@ -200,7 +200,8 @@ function NestedDonut({ width }) {
         width: width ?? '100%',
         height: '500px',
         border: '1px solid #23562a',
-        borderRadius: '10px',
+        borderRadius: '0px 0px 0px 0px',
+        borderBottom:'0px',
         position:'relative'
       }}
     >

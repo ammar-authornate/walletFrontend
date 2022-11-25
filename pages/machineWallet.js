@@ -29,7 +29,7 @@ const MachineWallet = () => {
       icon: '1icon',
     },
     {
-      name: 'Trasansaction',
+      name: 'Transaction',
       icon: '2icon',
     },
     {
@@ -89,7 +89,7 @@ const MachineWallet = () => {
             width: '100%',
             padding: '10px',
             border: '1px solid #23562a',
-            borderRadius: '10px',
+            borderRadius: '10px 10px 0px 0px',
           }}
         >
           <div
@@ -154,7 +154,6 @@ const MachineWallet = () => {
             />
           </div>
         </div>
-        <MarginSpacer />
         {page === 'Overview' && (
           <div data-aos='fade-up' data-aos-anchor-placement='top-bottom'>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -165,7 +164,7 @@ const MachineWallet = () => {
                 padding: 0,
                 borderRadius: '40px',
                 background: '#262626',
-                marginTop: '3vh',
+                marginTop: '1vh',
               }}
             >
               <H1 style={{ paddingTop: '4vh', paddingLeft: '4vh' }}>
@@ -190,12 +189,12 @@ const MachineWallet = () => {
             </div>
           </div>
         )}
-        {page === 'Trasansaction' && (
+        {page === 'Transaction' && (
           <div data-aos='fade-up' data-aos-anchor-placement='top-bottom'>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <PieGreen />
             </div>
-            <MarginSpacer mt='3vh' />
+            <MarginSpacer mt='1vh' />
             <CustomizedTables title={'Recent Transaction'} />
             <div
               style={{
@@ -229,7 +228,7 @@ const MachineWallet = () => {
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <PieGreen />
             </div>
-            <MarginSpacer mt='3vh' />
+            <MarginSpacer mt='1vh' />
             <NftTable title={'Mints Participated'} />
             <div
               style={{

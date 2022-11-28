@@ -50,7 +50,8 @@ const MachineWallet = () => {
     justify-content: space-between;
     width: 100%;
     padding: '10px';
-    margin:'10px';
+    margin-top: 15px;
+    margin-bottom: 15px;
     border: 1px solid #23562a;
     border-radius: '10px 10px 0px 0px';
     @media screen and (max-width: 900px) {
@@ -69,7 +70,7 @@ const MachineWallet = () => {
   display:flex;
   alignItems:center;
   opacity: 0.4
-  width: 40%;
+  width: 0%;
   @media screen and (mix-width:900px){
     width: 100%;
   }
@@ -117,11 +118,7 @@ const MachineWallet = () => {
         <MarginSpacer mt='3vh' />
 
         <ButtonNav>
-          <div
-            data-aos='fade-right'
-            data-aos-offset='300'
-            data-aos-easing='ease-in-sine'
-          >
+          <div>
             <InputBox padding={'8px'}>
               {labels.map((btn, i) => (
                 <IconButton
@@ -146,9 +143,6 @@ const MachineWallet = () => {
           </div>
 
           <InputCoin
-            data-aos='fade-left'
-            data-aos-offset='300'
-            data-aos-easing='ease-in-sine'
             style={{
               display: 'flex',
               alignItems: 'center',

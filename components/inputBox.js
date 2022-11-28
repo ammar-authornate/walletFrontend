@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Textbox = styled.input`
-  padding: 8px 12px 10px;
+  padding: 8px 10px 10px;
   gap: 8px;
   width: calc(100% - 50px);
   border: none;

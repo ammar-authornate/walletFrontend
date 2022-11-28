@@ -4,6 +4,7 @@ import * as am5percent from '@amcharts/amcharts5/percent';
 
 import am5themes_Animated from '@amcharts/amcharts5/themes/Dark';
 import { H1, H3 } from './TypoGraphy';
+import styled from 'styled-components';
 import { Image } from './Image';
 
 function NestedDonut({ width }) {
@@ -35,8 +36,8 @@ function NestedDonut({ width }) {
         radius: am5.percent(60),
         color: am5.color('#44C454'),
         innerRadius: am5.percent(90),
-        startAngle:0,
-        endAngle:360,
+        startAngle: 0,
+        endAngle: 360,
       })
     );
     series0.labels.template.set('visible', false);
@@ -60,7 +61,6 @@ function NestedDonut({ width }) {
     series0.labels.template.setAll({
       templateField: 'settings',
     });
-    
 
     series0.ticks.template.setAll({
       templateField: 'settings',
@@ -128,8 +128,8 @@ function NestedDonut({ width }) {
         innerRadius: am5.percent(65),
         valueField: 'value',
         categoryField: 'category',
-        startAngle:0,
-        endAngle:360,
+        startAngle: 0,
+        endAngle: 360,
       })
     );
     let label = series1.children.push(
@@ -192,7 +192,24 @@ function NestedDonut({ width }) {
       root.dispose();
     };
   }, []);
-
+  const ChartStyled = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    @media screen and (max-width: 1000px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      align-items: center;
+      margin-top: 2em;
+      margin-right: 0px;
+      gap: 2em;
+    }
+  `;
   return (
     <div
       id='chartdiv'
@@ -201,23 +218,14 @@ function NestedDonut({ width }) {
         height: '500px',
         border: '1px solid ',
         borderRadius: '0px 0px 0px 0px',
-        borderBottom:'0px',
-        borderImage:'linear-gradient(180deg,#44C454,transparent) 1 100%',
-        position:'relative'
+        borderBottom: '0px',
+        borderImage: 'linear-gradient(180deg,#44C454,transparent) 1 100%',
+        position: 'relative',
+        height: '500px',
+        marginBottom: '2em',
       }}
     >
-      <div
-        style={{
-          display: 'flex',
-          justifyContent:'flex-end',
-          marginRight: '20px',
-          position: 'absolute',
-          right:0,
-          bottom:20,
-          top:70
-
-        }}
-      >
+      <ChartStyled>
         <div>
           <div
             style={{
@@ -258,7 +266,7 @@ function NestedDonut({ width }) {
             </H1>
           </div>
         </div>
-      </div>
+      </ChartStyled>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Image } from './Image';
 import { MarginSpacer } from './Spacer';
 import { H1 } from './TypoGraphy';
+import styled from 'styled-components';
 
 function Instruction() {
   const data = [
@@ -34,22 +35,32 @@ function Instruction() {
         'it is a long established fact that a reader will be distracted by the readable content of a page when looking at <br /> its layout. The point of using Lorem Ipsum is that it has amore-or-less normal distribution of letters, as <br /> opposed tousing .Content here, content here, making it look like readable English.',
     },
   ];
+  const Wrapper = styled.div`
+  display:flex;
+  justify-content:space-evenly;
+  align-items:center;
+  background: #131313;
+  border-radius:20px;
+  padding:40px;
+  gap:2em;
+  @media screen and (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+    gap:2em;
+    margin-bottom: 2em;
+  }
+
+  `;
 
   return (
     <div>
       {data.map((data, index) => {
         return (
           <div key={index}>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-evenly',
-                alignItems: 'center',
-                background: '#131313',
-                borderRadius: '20px',
-                padding: '40px',
-              }}
-            >
+            <Wrapper>
               <Image
                 src={`/assets/${data.image}.png`}
                 height={'200px'}
@@ -60,21 +71,20 @@ function Instruction() {
                 <H1
                   style={{
                     fontSize: '17px',
-                    marginTop: '2.5rem',
                     opacity: '0.5',
                   }}
                 >
                   {data.instr2}
                 </H1>
               </div>
-            </div>
-            <MarginSpacer mt='2vh' />
+            </Wrapper>
             <div
               style={{
                 display: 'flex',
                 justifyContent: 'center',
                 width: '100%',
                 alignItems: 'center',
+                gap: '0.5em',
               }}
             >
               <div
@@ -82,7 +92,6 @@ function Instruction() {
                   width: '100px',
                   borderWidth: '0.00001px',
                   borderStyle: 'solid',
-                  marginRight: '5px',
                   height: '1px',
                   borderImage:
                     'linear-gradient(213deg,#fff 1%,#fff 50%,#000) 100% 0 100% 0/3px 0 3px 0 stretch',
@@ -92,7 +101,6 @@ function Instruction() {
               <div
                 style={{
                   width: '100px',
-                  marginLeft: '5px',
                   borderWidth: '0.00001px',
                   borderStyle: 'solid',
                   height: '1px',

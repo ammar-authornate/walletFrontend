@@ -7,8 +7,10 @@ import { Image } from '../components/Image';
 import { MarginSpacer } from '../components/Spacer';
 import CustomizedTables from '../components/Table';
 import Tree from '../components/Tree';
+import styled from 'styled-components';
 import LineChart from '../components/lineChart';
 import NestedDonut from '../components/PieChart';
+import Textbox from '../components/inputBox';
 import HalfPie from '../components/BarChart';
 import PieChart2 from '../components/PieChart2';
 import NftTable from '../components/TableNft';
@@ -22,6 +24,7 @@ const MachineWallet = () => {
   const handleClick = () => {
     setActive(!active);
   };
+  const [value, setValue] = useState('00x234535k43nfg4i35g34gh444');
   const [activeButton, setActiveButton] = useState(0);
   const [page, setPage] = useState('Overview');
   const labels = [
@@ -42,6 +45,36 @@ const MachineWallet = () => {
       icon: '3icon',
     },
   ];
+  const ButtonNav = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: '10px';
+    margin:'10px';
+    border: 1px solid #23562a;
+    border-radius: '10px 10px 0px 0px';
+    @media screen and (max-width: 900px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 2em;
+      width: '100%';
+      border: none;
+      gap: 2em;
+      margin: 2em;
+    }
+  `;
+  const InputCoin = styled.div`
+  display:flex;
+  alignItems:center;
+  opacity: 0.4
+  width: 40%;
+  @media screen and (mix-width:900px){
+    width: 100%;
+  }
+  `;
+
   return (
     <div>
       <CenterItems data-aos='fade-down'>
@@ -80,30 +113,14 @@ const MachineWallet = () => {
           </Button>
         </div>
       </CenterItems>
-      <div style={{ marginLeft: '6rem', marginRight: '6rem' }}>
+      <div style={{ marginLeft: '4rem', marginRight: '4rem' }}>
         <MarginSpacer mt='3vh' />
 
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            width: '100%',
-            padding: '10px',
-            border: '1px solid #23562a',
-            borderRadius: '10px 10px 0px 0px',
-          }}
-        >
+        <ButtonNav>
           <div
             data-aos='fade-right'
             data-aos-offset='300'
             data-aos-easing='ease-in-sine'
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              background: '#262626',
-              borderRadius: '60px',
-              alignItems: 'center',
-            }}
           >
             <InputBox padding={'8px'}>
               {labels.map((btn, i) => (
@@ -128,7 +145,7 @@ const MachineWallet = () => {
             </InputBox>
           </div>
 
-          <div
+          <InputCoin
             data-aos='fade-left'
             data-aos-offset='300'
             data-aos-easing='ease-in-sine'
@@ -138,23 +155,15 @@ const MachineWallet = () => {
               opacity: '0.4',
             }}
           >
-            <Image src='/assets/walleticon.png' alt='wallets' />
-            <H1
-              style={{
-                fontSize: '22px',
-                marginLeft: '1rem',
-                fontWeight: '400',
-              }}
-            >
-              00x234535k43nfg4i35g34gh444
-            </H1>
-            <Image
-              style={{ marginLeft: '1rem' }}
-              src='/assets/Copy.png'
-              alt='wallets'
+            <Textbox
+              icon='/assets/walleticon.png'
+              color='rgba(255, 255, 255, 1)'
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
             />
-          </div>
-        </div>
+            <Image src='/assets/Copy.png' alt='wallets' />
+          </InputCoin>
+        </ButtonNav>
         {page === 'Overview' && (
           <div data-aos='fade-up' data-aos-anchor-placement='top-bottom'>
             <div style={{ display: 'flex', justifyContent: 'center' }}>

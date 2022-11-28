@@ -7,7 +7,6 @@ const InputWrapper = styled.div`
   padding: ${(props) => (props.padding ? props.padding : '11px 24px')};
   width: ${(props) => (props.width ? props.width : '100%')};
   margin-right: ${(props) => (props.marginRight ? props.marginRight : '0px')}; 
-  height: 100%;
   border: ${(props) => (props.textBorder ? props.textBorder : '')};
   background: ${(props) => (props.background ? props.background : '#262626')};
   border-radius: ${(props) => (props.border ? props.border : '100px')};

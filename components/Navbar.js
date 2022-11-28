@@ -17,6 +17,16 @@ const NavbarWrapper = styled.div`
 const NavbarItems = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+    gap: 2em;
+    margin-bottom: 2em;
+  }
 `;
 const NavbarMenu = styled.div`
   display: flex;
@@ -60,7 +70,7 @@ export function Navbar() {
           <H1 style={{ fontSize: '30px', color: '#44C454' }}>wallet</H1>
         </div>
       </Link>
-      <NavbarItems style={{ display: 'flex', alignItems: 'center' }}>
+      <NavbarItems>
         <Image src='/assets/print.png' alt='print' width={'22px'} />
         <H1
           style={{
@@ -73,14 +83,20 @@ export function Navbar() {
         >
           Print&nbsp;Report
         </H1>
-        <InputBox background={'black'} border={'20px'} padding={'7px'}>
+        <InputBox
+          background={'black'}
+          border={'20px'}
+          padding={'7px'}
+          width={'400px'}
+        >
           <InputBox border={'10px'} align={'center'} width={'100%'}>
             <div
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                width: '35vh',
                 alignItems: 'center',
+                gap: '0.6em',
+                cursor: 'pointer',
               }}
             >
               <Image src='/assets/greendot.png' alt='greendot' width={'15px'} />

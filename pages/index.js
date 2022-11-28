@@ -54,10 +54,10 @@ export default function Home() {
               <InputBox
                 align={'center'}
                 border={'20px'}
-                width={'25%'}
-                marginRight={'20px'}
+                width={'400px'}
+
               >
-                <div style={{ margin: '20px', width: '100%' }}>
+                <div style={{ margin: '17px', width: '100%' }}>
                   <MainHome>
                     <H1 style={{ fontSize: '20px' }}>Your Wallet</H1>
                     <Image src='/assets/tick.png' alt='hello' />
@@ -82,7 +82,7 @@ export default function Home() {
                       <Image
                         src='/assets/Copy.png'
                         alt='tick'
-                        style={{ cursor: 'pointer', }}
+                        style={{ cursor: 'pointer' }}
                         onClick={() => navigator.clipboard.writeText(value)}
                       />
                     </InputBox>
@@ -106,8 +106,8 @@ export default function Home() {
                   </Button>
                 </div>
               </InputBox>
-              <InputBox align={'center'} border={'20px'} width={'25%'}>
-                <div style={{ margin: '20px', width: '100%' }}>
+              <InputBox align={'center'} border={'20px'} width={'400px'} >
+                <div style={{ margin: '17px', width: '100%' }}>
                   <MainHome>
                     <H1 style={{ fontSize: '20px' }}>Bulk Report</H1>
                     <Image src='/assets/tick.png' alt='hello' />
@@ -162,16 +162,15 @@ export default function Home() {
                 </div>
               </InputBox>
             </CenterItems>
-            <MarginSpacer mt='2vh' />
+            <MarginSpacer mt='2em' />
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <InputBox
                 align={'center'}
                 border={'20px'}
-                width={'25%'}
-                marginRight={'20px'}
+                width={'400px'}
                 background={'#34A542'}
               >
-                <div style={{ margin: '20px', width: '100%' }}>
+                <div style={{ margin: '17px', width: '100%' }}>
                   <div
                     style={{
                       display: 'flex',

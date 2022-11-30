@@ -34,8 +34,8 @@ function PieGreen({ width }) {
         radius: am5.percent(60),
         color: am5.color('#44C454'),
         innerRadius: am5.percent(90),
-        startAngle:0,
-        endAngle:360,
+        startAngle: 0,
+        endAngle: 360,
       })
     );
 
@@ -92,8 +92,8 @@ function PieGreen({ width }) {
         radius: am5.percent(85),
         innerRadius: am5.percent(65),
         valueField: 'value',
-        startAngle:0,
-        endAngle:360,
+        startAngle: 0,
+        endAngle: 360,
         categoryField: 'category',
       })
     );
@@ -159,6 +159,28 @@ function PieGreen({ width }) {
     };
   }, []);
 
+  const ChartStyledGreen = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+    position: absolute;
+    right: 23%;
+    bottom: 20;
+    top: 70;
+    @media screen and (max-width: 1000px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      right: 0px;
+      top: 0px;
+      margin-top: 2em;
+      height: '100%';
+      margin-right: 0px;
+    }
+  `;
+
   return (
     <div
       id='pieGreen'
@@ -167,22 +189,12 @@ function PieGreen({ width }) {
         height: '430px',
         border: '1px solid',
         borderRadius: '0px 0px 0px 0px',
-        borderBottom:'0px',
-        borderImage:'linear-gradient(180deg,#44C454,transparent) 1 100%',
+        borderBottom: '0px',
+        borderImage: 'linear-gradient(180deg,#44C454,transparent) 1 100%',
         position: 'relative',
       }}
     >
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginRight: '20px',
-          position: 'absolute',
-          right: '23%',
-          bottom: 20,
-          top: 70,
-        }}
-      >
+      <ChartStyledGreen>
         <div>
           <div
             style={{
@@ -219,11 +231,11 @@ function PieGreen({ width }) {
             <H1
               style={{ fontSize: '16px', marginLeft: '5px', fontWeight: '500' }}
             >
-              Very Good
+              Very Goodd
             </H1>
           </div>
         </div>
-      </div>
+      </ChartStyledGreen>
     </div>
   );
 }

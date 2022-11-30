@@ -254,7 +254,7 @@ function NestedDonut({ width }) {
               /
             </div>{' '}
             <H1 style={{ fontSize: 'px', opacity: '0.4', fontWeight: '400' }}>
-              800
+              8000000000
             </H1>
           </div>
           <div

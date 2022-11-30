@@ -4,6 +4,7 @@ import am5themes_Animated from '@amcharts/amcharts5/themes/Dark';
 import * as am5hierarchy from '@amcharts/amcharts5/hierarchy';
 import { MarginSpacer } from './Spacer';
 import { Image } from './Image';
+import styled from 'styled-components';
 import { H1 } from './TypoGraphy';
 function Tree({ width }) {
   const pieRef = useRef(null);
@@ -235,23 +236,27 @@ function Tree({ width }) {
     };
   }, []);
 
+  const TreeWrapper = styled.div`
+    display: flex;
+    margin-left: 5rem;
+    background: #302f2f;
+    border-radius: 20px;
+    align-items: center;
+    width: 30%;
+    padding: 7px;
+    @media screen and (max-width: 1000px) {
+      width: auto;
+      margin-left: 0px;
+    }
+  `;
+
   return (
     <div style={{ padding: '2rem' }}>
       <div
         id='directeddiv'
         style={{ width: width ?? '100%', height: '500px' }}
       ></div>
-      <div
-        style={{
-          display: 'flex',
-          marginLeft: '5rem',
-          background: '#302f2f',
-          borderRadius: '20px',
-          alignItems: 'center',
-          width: '30%',
-          padding: '7px',
-        }}
-      >
+      <TreeWrapper>
         <div
           style={{
             background: '#34A642',
@@ -261,7 +266,7 @@ function Tree({ width }) {
         >
           <Image src='/assets/walletwhite.png' />
         </div>
-        <div style={{ marginLeft: '2rem', }}>
+        <div style={{ marginLeft: '2rem' }}>
           <H1 style={{ fontSize: '20px', fontWeight: '500' }}>
             Effect top score 6.3%
           </H1>
@@ -270,15 +275,14 @@ function Tree({ width }) {
               fontSize: '18px',
               opacity: 0.5,
               fontWeight: '500',
-              display:'inline-block',
-              wordBreak:'break-word',
-              
+              display: 'inline-block',
+              wordBreak: 'break-word',
             }}
           >
             00xrtjiowert3454534t89u453t93fz
           </H1>
         </div>
-      </div>
+      </TreeWrapper>
     </div>
   );
 }

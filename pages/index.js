@@ -39,9 +39,14 @@ export default function Home() {
           <div data-aos='fade-up' style={{ width: 'auto' }}>
             <MarginSpacer mt='2vh' />
             <div style={{ textAlign: 'center' }}>
-              <H1 style={{ fontSize: '30px' }}>
-                Track the Value <br /> of your assets
+              <div>
+              <H1 style={{ fontSize: '30px',lineHeight:'40px' }}>
+                Track the Value 
               </H1>
+              <H1 style={{ fontSize: '22px' }}>
+              of your assets
+              </H1>
+              </div>
               <MarginSpacer mt='3vh' />
               <H1 style={{ fontSize: '12px', opacity: '0.6' }}>
                 Track the value your assets from any platform you all in one

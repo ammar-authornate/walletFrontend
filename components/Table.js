@@ -43,7 +43,7 @@ const Table3 = ({ title }) => {
   ];
   return (
     <div
-      style={{ background: '#262626', padding: '20px', borderRadius: '20px' }}
+      style={{ background: '#262626', padding: '20px', borderRadius: '20px' ,overflow:'auto'}}
     >
       <H1>{title}</H1>
       <MarginSpacer mb='3vh' />
@@ -108,7 +108,7 @@ const Table3 = ({ title }) => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: '3rem',
+          marginTop: '2em',
         }}
       >
         <H1

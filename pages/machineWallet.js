@@ -24,7 +24,7 @@ const MachineWallet = () => {
   const handleClick = () => {
     setActive(!active);
   };
-  const [value, setValue] = useState('00x234535k43nfg4i35g34gh444');
+  const [hash, setHash] = useState('00x234535k43nfg4i35g34gh444');
   const [activeButton, setActiveButton] = useState(0);
   const [page, setPage] = useState('Overview');
   const labels = [
@@ -50,8 +50,8 @@ const MachineWallet = () => {
     justify-content: space-between;
     width: 100%;
     padding: '10px';
+    margin-bottom: 1em;
     margin-top: 15px;
-    margin-bottom: 15px;
     border: 1px solid #23562a;
     border-radius: '10px 10px 0px 0px';
     @media screen and (max-width: 900px) {
@@ -59,25 +59,36 @@ const MachineWallet = () => {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin: 2em;
       width: '100%';
       border: none;
       gap: 2em;
-      margin: 2em;
     }
   `;
   const InputCoin = styled.div`
-  display:flex;
-  alignItems:center;
-  opacity: 0.4
-  width: 0%;
-  @media screen and (mix-width:900px){
-    width: 100%;
-  }
+    display: flex;
+    align-items: center;
+    opacity: 0.4;
+    width: 30%;
+    @media screen and (max-width: 900px) {
+      justify-content: center;
+      width: 100%;
+    }
+  `;
+
+  const Container = styled.div`
+    margin-left: 2rem;
+    margin-right: 2rem;
+  `;
+  const ChildContainer = styled.div`
+    margin-left: 4rem;
+    margin-right: 4rem;
+    @media screen and (max-width: 900px) {
+      margin: 0px;
+    }
   `;
 
   return (
-    <div>
+    <Container>
       <CenterItems data-aos='fade-down'>
         <MarginSpacer mt='2vh' />
         <div
@@ -87,6 +98,7 @@ const MachineWallet = () => {
             background: '#262626',
             borderRadius: '60px',
             alignItems: 'center',
+            marginTop: '1em',
           }}
         >
           <IconButton
@@ -114,11 +126,11 @@ const MachineWallet = () => {
           </Button>
         </div>
       </CenterItems>
-      <div style={{ marginLeft: '4rem', marginRight: '4rem' }}>
+      <ChildContainer>
         <MarginSpacer mt='3vh' />
 
         <ButtonNav>
-          <div>
+          <div style={{ margin: '10px' }}>
             <InputBox padding={'8px'}>
               {labels.map((btn, i) => (
                 <IconButton
@@ -142,18 +154,12 @@ const MachineWallet = () => {
             </InputBox>
           </div>
 
-          <InputCoin
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              opacity: '0.4',
-            }}
-          >
+          <InputCoin>
             <Textbox
               icon='/assets/walleticon.png'
               color='rgba(255, 255, 255, 1)'
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
+              value={hash}
+              onChange={(e) => setHash(e.target.value)}
             />
             <Image src='/assets/Copy.png' alt='wallets' />
           </InputCoin>
@@ -266,8 +272,8 @@ const MachineWallet = () => {
             <Instruction />
           </div>
         )}
-      </div>
-    </div>
+      </ChildContainer>
+    </Container>
   );
 };
 

@@ -119,7 +119,7 @@ const Table3 = ({ title }) => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: '3rem',
+          marginTop: '2em',
         }}
       >
         <H1

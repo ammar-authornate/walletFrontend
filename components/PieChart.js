@@ -203,15 +203,24 @@ function NestedDonut({ width }) {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      position: relative;
       align-items: center;
+      position: relative;
+      right: 0px;
+      top: 0px;
       margin-top: 2em;
+      height: '100%';
       margin-right: 0px;
-      gap: 2em;
+    }
+  `;
+  const ChartStyle = styled.div`
+    width: '100%';
+    margin-bottom: 2em;
+    @media screen and (max-width: 1000px) {
+      margin-bottom: 6em;
     }
   `;
   return (
-    <div
+    <ChartStyle
       id='chartdiv'
       style={{
         width: width ?? '100%',
@@ -222,7 +231,6 @@ function NestedDonut({ width }) {
         borderImage: 'linear-gradient(180deg,#44C454,transparent) 1 100%',
         position: 'relative',
         height: '500px',
-        marginBottom: '2em',
       }}
     >
       <ChartStyled>
@@ -267,7 +275,7 @@ function NestedDonut({ width }) {
           </div>
         </div>
       </ChartStyled>
-    </div>
+    </ChartStyle>
   );
 }
 

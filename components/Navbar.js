@@ -18,7 +18,7 @@ const NavbarItems = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1000px) {
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -167,18 +167,6 @@ function PieGreen({ width }) {
     right: 23%;
     bottom: 20;
     top: 70;
-    @media screen and (max-width: 1000px) {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      right: 0px;
-      top: 0px;
-      margin-top: 2em;
-      height: '100%';
-      margin-right: 0px;
-    }
   `;
 
   return (
